@@ -1,7 +1,7 @@
 % 
 [m,n]=size(A);
 if exist('toler') ~= 1
-   toler = 1.e-5;
+   toler = 1.e-1;
 end;
 if exist('gamma') ~= 1
    gamma = 0.9;
