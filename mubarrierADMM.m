@@ -1,7 +1,7 @@
 % 
 [m,n]=size(A);
 if exist('toler') ~= 1
-   toler = 1.e-1;
+   toler = 1.e-3;
 end;
 if exist('gamma') ~= 1
    gamma = 0.9;
@@ -49,7 +49,9 @@ while mu >= toler,
   total_it = total_it + 1;
  end;
   mu=gamma*mu
-
+  if total_it > n
+    break
+  end
 end;
 total_it
 norm(A'*y+s-c)/(1+norm(s))+norm(A*x-b)/(1+norm(x))+s'*x/(norm(x)+norm(s))

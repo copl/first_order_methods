@@ -17,4 +17,29 @@ function [ basis_indicies ] = round_to_basis( A, indicies_order )
         end
     end
 end
+%function [ basis_indicies ] = round_to_basis( A, indicies_order, eps )
+%    [m,n] = size(A);
+%    basis_indicies = [];
+%    Q = ones(1,m)';
+%
+%    for i = 1:length(indicies_order)
+%        if length(basis_indicies) == m
+%           break
+%        end
+%        col_index = indicies_order(i);
+%        candidate_basis = [basis_indicies; col_index];
+%        
+%        a = A(:,col_index);
+%        
+%        v = Q'*a;
+%        if norm(v) < norm(a) - 10^-7
+%            basis_indicies = candidate_basis;
+%            B = A(:,basis_indicies);
+%            [Q,R] = qr(B,0);
+%        end
+%    end
+%    
+%    disp('conditon number')
+%    disp(condest(B))
+%end
 

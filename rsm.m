@@ -50,7 +50,9 @@ d = B \ b;
 %	c_tilde		modified cost vector
 
 c_tilde = zeros(1,n);
-c_tilde(:,V_indices) = c(:,V_indices) - c(:,B_indices) * (B \ A(:,V_indices));
+pi = B' \ (c(:,B_indices)');
+c_tilde(:,V_indices) = c(:,V_indices) - pi' * A(:,V_indices);
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	Step 6
